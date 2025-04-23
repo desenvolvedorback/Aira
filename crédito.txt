@@ -1,0 +1,23 @@
+# Créditos do Projeto
+
+## Desenvolvido por:
+- [Davi Leonardo]
+
+## Tecnologias Utilizadas:
+- Python  
+- Flask  
+- SQLite  
+
+## Agradecimentos:
+Agradeço a todos que contribuíram direta ou indiretamente para o desenvolvimento deste projeto.  
+
+## Licença:
+Este projeto está licenciado sob [Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0].  
+
+## Contato:
+Caso tenha dúvidas ou sugestões, entre em contato:  
+- Email: [seu-email@example.com]  
+- GitHub: [github.com/seuusuario]
+
+# Copyright (c) 2025 Davi Leonardo 
+# Todos os direitos reservados.

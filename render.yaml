@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: ia-chatbot
+    env: python
+    buildCommand: ""
+    startCommand: "python app.py"
+    repo: https://github.com/desenvolvedorback/Intelig-ncia-artificial1
+    branch: main
+    plan: free
+    autoDeploy: true

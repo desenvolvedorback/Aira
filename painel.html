@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Edição</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        button { margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Painel de Edição do Conhecimento</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Pergunta</th>
+                <th>Resposta</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="tabela-dados"></tbody>
+    </table><script>
+    async function carregarDados() {
+        const resposta = await fetch('/painel-dados');
+        const dados = await resposta.json();
+        const tabela = document.getElementById('tabela-dados');
+        tabela.innerHTML = '';
+
+        dados.forEach(item => {
+            let linha = `<tr>
+                <td>${item.id}</td>
+                <td>${item.pergunta}</td>
+                <td><input type='text' value='${item.resposta}' id='resposta-${item.id}'></td>
+                <td>
+                    <button onclick='editar(${item.id})'>Salvar</button>
+                    <button onclick='excluir(${item.id})'>Excluir</button>
+                </td>
+            </tr>`;
+            tabela.innerHTML += linha;
+        });
+    }
+
+    async function editar(id) {
+        let novaResposta = document.getElementById(`resposta-${id}`).value;
+        await fetch('/editar', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id, resposta: novaResposta })
+        });
+        alert('Atualizado com sucesso!');
+        carregarDados();
+    }
+
+    async function excluir(id) {
+        await fetch('/excluir', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id })
+        });
+        alert('Excluído com sucesso!');
+        carregarDados();
+    }
+
+    carregarDados();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+CC BY-ND 4.0 License  
+
+Este software está licenciado sob a Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0).  
+
+Você pode:  
+✔ Usar este software para qualquer finalidade, incluindo comercialmente.  
+
+Você NÃO pode:  
+❌ Modificar, adaptar ou criar obras derivadas a partir deste software.  
+❌ Distribuir versões alteradas deste software.  
+
+Mais informações sobre a licença:  
+https://creativecommons.org/licenses/by-nd/4.0/

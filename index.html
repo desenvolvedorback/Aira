@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>IA | Aira</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root{
+      --bg-light:#f0f0f0;--txt-light:#111;--card-light:#fff;
+      --bg-dark:#111;--txt-dark:#f0f0f0;--card-dark:#1e1e1e;
+      --accent:#4CAF50
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Segoe UI',sans-serif;min-height:100vh;
+      display:flex;flex-direction:column;justify-content:center;align-items:center;
+      padding:20px;background:var(--bg-dark);color:var(--txt-dark);
+      transition:background .3s,color .3s;overflow-x:hidden
+    }
+    body.light{background:var(--bg-light);color:var(--txt-light)}
+    h1{margin-bottom:20px;color:var(--accent)}
+    .container{width:100%;max-width:600px}
+    input{
+      width:100%;padding:10px;font-size:1em;border-radius:5px;border:none;
+      margin-bottom:10px;background:#222;color:#fff
+    }
+    body.light input{background:#eee;color:#000}
+    button{
+      padding:10px 20px;font-size:1em;border:none;border-radius:5px;
+      background:var(--accent);color:#fff;cursor:pointer;margin:5px 5px 10px 0
+    }
+    #resposta,#historico{
+      margin-top:20px;padding:15px;border-radius:10px;background:var(--card-dark)
+    }
+    body.light #resposta,body.light #historico{background:var(--card-light)}
+    #historico h3{margin-bottom:10px}
+    #loading{margin-top:10px;color:#aaa;display:none}
+    .top-bar{position:absolute;top:10px;right:10px}
+    .toggle{
+      background:transparent;color:inherit;border:1px solid var(--accent);
+      padding:5px 10px;border-radius:20px;cursor:pointer
+    }
+    .pergunta-resposta{margin-bottom:15px}
+    .pergunta{font-weight:700}
+    .resposta{margin-left:10px}
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <button class="toggle" onclick="alternarTema()">Alternar tema</button>
+  </div>
+
+  <div class="container">
+    <h1>IA Aira</h1>
+    <input id="pergunta" placeholder="Digite sua pergunta..." 
+           onkeydown="if(event.key==='Enter') enviarPergunta()">
+    <button onclick="enviarPergunta()">Perguntar</button>
+    <div id="loading">Procurando resposta...</div>
+    <div id="resposta"></div>
+    <div id="historico"><h3>Histórico</h3></div>
+  </div>
+
+  <script>
+    function alternarTema(){document.body.classList.toggle('light');}
+
+    async function enviarPergunta(){
+      const input=document.getElementById('pergunta');
+      const pergunta=input.value.trim();
+      if(!pergunta) return;
+
+      const respDiv=document.getElementById('resposta');
+      const load=document.getElementById('loading');
+      const hist=document.getElementById('historico');
+
+      respDiv.innerHTML='';load.style.display='block';
+
+      try{
+        const r=await fetch('/perguntar',{
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({pergunta})
+        });
+        const data=await r.json();
+        const resposta=data.resposta;
+
+        respDiv.innerHTML=`<strong>Resposta:</strong><br>${resposta}`;
+
+        const bloco=document.createElement('div');
+        bloco.className='pergunta-resposta';
+        bloco.innerHTML=`<div class="pergunta">Você: ${pergunta}</div>
+                         <div class="resposta">IA: ${resposta}</div>`;
+        hist.appendChild(bloco);
+      }catch(e){
+        respDiv.textContent='Erro ao buscar a resposta.';
+      }
+      input.value='';load.style.display='none';
+    }
+  </script>
+
+</body>
+</html>

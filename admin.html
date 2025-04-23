@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Admin</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;padding:20px;background:#fafafa}
+    table{border-collapse:collapse;width:100%}
+    th,td{border:1px solid #ddd;padding:8px;vertical-align:top}
+    tr:nth-child(even){background:#f2f2f2}
+    th{background:#4CAF50;color:white}
+    a.btn{display:inline-block;margin:0 5px 15px 0;padding:6px 12px;background:#4CAF50;
+          color:#fff;text-decoration:none;border-radius:4px}
+  </style>
+</head>
+<body>
+  <h2>Painel Administrativo</h2>
+  <a class="btn" href="{{ url_for('logout') }}">Logout</a>
+  <a class="btn" href="{{ url_for('download') }}">Baixar CSV</a>
+  <a class="btn" href="{{ url_for('limpar') }}">Limpar log</a>
+
+  <table>
+    <tr>
+      <th>ID</th><th>Data/Hora</th><th>Pergunta</th><th>Resposta</th>
+    </tr>
+    {% for row in rows %}
+    <tr>
+      <td>{{row[0]}}</td>
+      <td>{{row[1]}}</td>
+      <td style="max-width:260px">{{row[2]}}</td>
+      <td style="max-width:400px">{{row[3]|safe}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

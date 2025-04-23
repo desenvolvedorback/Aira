@@ -1,0 +1,17 @@
+# 1. Criar ambiente virtual (opcional, mas recomendado)
+python -m venv venv
+
+# 2. Ativar o ambiente virtual
+# No Windows:
+venv\Scripts\activate
+# No Linux/Mac:
+source venv/bin/activate
+
+# 3. Instalar dependências
+pip install -r requisitos.txt
+
+# 4. Iniciar o banco de dados (criação automática)
+python app.py
+
+# 5. Executar a aplicação
+python app.py

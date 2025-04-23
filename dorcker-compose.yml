@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  chatbot:
+    build: .
+    container_name: ia-chatbot
+    ports:
+      - "5000:5000"          # host:container
+    environment:
+      ADMIN_USER: admin
+      ADMIN_PASS: 1234
+      SECRET_KEY: minha-chave-super-secreta
+    restart: unless-stopped

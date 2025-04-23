@@ -1,0 +1,26 @@
+[
+    {
+        "usuario": "Oi",
+        "ia": "Olá! Como posso te ajudar hoje?"
+    },
+    {
+        "usuario": "Ola",
+        "ia": "Então, eu pesquisei isso pra você:<br><br>\n1.\n          Fórmula de saudação (ex.: Olá, tudo bem?).\n              =\n              OI\n \n2.\n          Exprime um chamamento (ex.: Olá, o senhor de boné, importa-se de avançar, por favor?).\n \n3.\n          Exprime admiração ou espanto (ex.: Olá, a isso é que eu chamo uma promoção!).\n \n4.\n          Exprime resposta afirmativa (ex.: Olá, comi o bolo todo e que bem que me soube!).\n              =\n              OLARILA, OLARÉ, OLÉ\n \n5.\n          Saudação ou cumprimento (ex.: passei só para dar um o...<br><br><b>Fontes:</b><br><a href=\"https://dicionario.priberam.org/ol%C3%A1\" target=\"_blank\">https://dicionario.priberam.org/ol%C3%A1</a><br><a href=\"https://www.dicio.com.br/ola-2/\" target=\"_blank\">https://www.dicio.com.br/ola-2/</a><br><a href=\"https://pt.wikipedia.org/wiki/Ola\" target=\"_blank\">https://pt.wikipedia.org/wiki/Ola</a>"
+    },
+    {
+        "usuario": "Oi",
+        "ia": "Olá! Como posso te ajudar hoje?"
+    },
+    {
+        "usuario": "Como fazer um bolo de caneca",
+        "ia": "Não achei nada útil, chefe... tenta perguntar de outro jeito?"
+    },
+    {
+        "usuario": "Como fazer um bolo",
+        "ia": "Não achei nada útil, chefe... tenta perguntar de outro jeito?"
+    },
+    {
+        "usuario": "Formula de baskara",
+        "ia": "Então, eu pesquisei isso pra você:<br><br>A fórmula de Bhaskara é um método resolutivo para equações do segundo grau utilizado para encontrar raízes a partir dos coeficientes da equação. A fórmula de Bhaskara é um método resolutivo para equações do segundo grau cujo nome homenageia o grande matemático indiano que a demonstrou. Essa fórmula nada mais é do que um método para encontrar as raízes reais de uma equação do segundo grau fazendo uso apenas de seus coeficientes. Vale lembrar que coeficiente é o número que multiplica uma incógnita...<br><br><b>Fontes:</b><br><a href=\"/search?num=7\" target=\"_blank\">/search?num=7</a><br><a href=\"https://brasilescola.uol.com.br/matematica/formula-bhaskara.htm\" target=\"_blank\">https://brasilescola.uol.com.br/matematica/formula-bhaskara.htm</a><br><a href=\"https://www.todamateria.com.br/formula-de-bhaskara/\" target=\"_blank\">https://www.todamateria.com.br/formula-de-bhaskara/</a>"
+    }
+]
